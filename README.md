@@ -49,6 +49,7 @@ Project components and/or stages/milestones the success of the project depends o
 7. Safety.
    - (medium) establish max distance for safe remote control  
    - (hard) hard-code safe autonomous ascent and descent   
+8. Open-air test.  
    
 
 ## Project 2: Quadcopter Drone Control with Motion Sensing
@@ -79,3 +80,9 @@ Project components and/or stages/milestones the success of the project depends o
    - (easy/medium) familiarize yourself with the [sensor suite documentation](https://store.arduino.cc/usa/nano-33-ble-sense) (tab _Tech Specs_)  
    - (easy/medium) familiarize yourself with the [board documentation](https://store.arduino.cc/usa/nano-33-ble-sense) (tab _Documentation_)       
    - (medium) familiarize yourself with the connectivity of the board, specifically for your project  
+3. Understanding [supervised machine learning](https://en.wikipedia.org/wiki/Supervised_learning). 
+   - (medium) understand that what you are doing currently with TinyML is **NOT** [transfer learning](https://machinelearningmastery.com/transfer-learning-for-deep-learning/), which is bleeding-edge ML and still largely unsolved  
+   - (easy/medium) read the first few chapters of Andrew Trask's _Grokking Deep Learning_  
+   - (medium) with this knowledge, take apart the pipline you used from the example, and explain to yourself every step   
+4. Understanding mostion-sensin for control in terms of reference frames.
+   - (easy/medium) 
