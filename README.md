@@ -112,3 +112,4 @@ Project components and/or stages/milestones the success of the project depends o
 7. Recognizing the I2C BLE transceiver.  **TODO**  
 8. Communication over BLE between Arduino and BLE transciever.  **TODO**  
 9. Programming the trajectories.  **TODO**  
+10. Wand design and operation.  
