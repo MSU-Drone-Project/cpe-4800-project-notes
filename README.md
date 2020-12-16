@@ -10,10 +10,12 @@ Table of Contents
     * [Description](#description)
     * [Project Lead](#project-lead)
     * [Critical Path](#critical-path)
+    * [Scope Progression](#scope-progression)
   * [Project 2: Quadcopter Drone Control with Motion Sensing](#project-2-quadcopter-drone-control-with-motion-sensing)
     * [Description](#description-1)
     * [Project Lead](#project-lead-1)
     * [Critical Path](#critical-path-1)
+    * [Scope Progression](#scope-progression-1)
 
 ## Project 1: Quadcopter Drone Flight Controller
 [[toc](#table-of-contents)]
@@ -33,6 +35,8 @@ Arsene Ngollo
 
 Project components and/or stages/milestones the success of the project depends on securing.
 
+**TODO** Requires more detail for Points 4 and 5
+
 1. Understanding the drone.
    - (easy) watch the [videos](https://www.youtube.com/channel/UC4L7czrqbS7ebMf5dX5L1SQ)  
    - (medium) learn to fly the drone to understand what you are working on  
@@ -51,11 +55,11 @@ Project components and/or stages/milestones the success of the project depends o
    - (medium) design the flight controller board with all the components that you will need  
    - (medium/hard) design the mounting of the board on the Pluto X frame  
    - (medium) securing the Pluto X, control the motors with your FC board  
-4. 3-axis (roll, pitch, yaw) PID loop.
+4. **3-axis (roll, pitch, yaw) PID loop.**
    - (hard) fine-tuning will require an ingenuous "dry-fly" platform, where the drone is secure but still able to move (e.g. the drone suspended by 4 stretched rubber bands)  
    - (medium/hard) manual tuning might never converge, so you have to look for a config file that works for the Pluto X to use as a default, baseline, and starting point for fine tuning   
    - (medium) test the responsiveness of the drone with 3 axes (**critical** to know if the Arduino Nano 33 BLE Sense will be able to fly the drone)  
-5. Control loop.
+5. **Control loop.**
    - (medium) study how the commands for the Pluto X are actually implemented in firmware  
    - (hard) write your own control loop framework (you might need to limit the scope of the flight capabilities just to keep this possible)  
    - (hard) dry-fly test on your tuning platform  
@@ -68,6 +72,11 @@ Project components and/or stages/milestones the success of the project depends o
    - (hard) hard-code safe autonomous ascent and descent   
 8. Open-air test.  
    
+### Scope Progression
+
+A sequence of stable milestones of partial end-goal completion which work in their own right and can serve as flexible surrogate end-goals for dynamic scope control.
+
+**TODO**  
 
 ## Project 2: Quadcopter Drone Control with Motion Sensing
 [[toc](#table-of-contents)]
@@ -101,11 +110,11 @@ Project components and/or stages/milestones the success of the project depends o
    - (easy/medium) familiarize yourself with the [sensor suite documentation](https://store.arduino.cc/usa/nano-33-ble-sense) (tab _Tech Specs_)  
    - (easy/medium) familiarize yourself with the [board documentation](https://store.arduino.cc/usa/nano-33-ble-sense) (tab _Documentation_)       
    - (medium) familiarize yourself with the connectivity of the board, specifically for your project  
-3. Understanding [supervised machine learning](https://en.wikipedia.org/wiki/Supervised_learning). 
+3. **Understanding [supervised machine learning](https://en.wikipedia.org/wiki/Supervised_learning).** 
    - (medium) understand that what you are doing currently with TinyML is **NOT** [transfer learning](https://machinelearningmastery.com/transfer-learning-for-deep-learning/), which is bleeding-edge ML and still largely unsolved  
    - (easy/medium) read the first few chapters of Andrew Trask's _Grokking Deep Learning_  
    - (medium) with this knowledge, take apart the pipline you used from the example, and explain to yourself every step   
-4. Understanding _motion-sensing for control_ in terms of reference frames.
+4. **Understanding _motion-sensing for control_ in terms of reference frames.**
    - (medium) the drone has its own _reference frame_ (exactly where it falls depends on their design; actually, the drone has 2-3 different reference systems and they are corrected for in the firmware: IMU, center of mass, center of thrust), relative to which it will perform any trajectory it's (programmed and) commanded to   
    - (medium) the Arduino has its own 2 systems: IMU and center of mass; you might or might not need to correct for it   
    - (medium) a _gesture_ is performed **relative** to the egocentric center of mass of a human (Actually, that's a gross simplification. For example, you can perform a hand guesture relative to your wrist and it will be recognized regardless of what the rest of your body is doing. _The human mind absolutely does not do [inverse kinematics](https://en.wikipedia.org/wiki/Inverse_kinematics) to recognize gestures._ The simplification will work for this project. However, it might need to be corrected for for the next point.)  
@@ -116,12 +125,37 @@ Project components and/or stages/milestones the success of the project depends o
      - machine learning is based on _features_, roughly defined as patterns of coocurrence of certain data that are repeatable and recognizable; in the beginning, these features had to be programmed by hand; with _deep learning, the model structure allows the model to extract the features automatically - this resulted in an explosion of novel solutions; for example, a feature might be a characteristic bump in the graph of a function  
      - the reason _"punch"_ and _"flex"_ work is subtle, and it has to do with features; they are very abrupt and fast motions, and generate very good accelerometer features; if the "gesture" motion is slower and smoother, the features will not exist; for example, performing a circular motion to command the drone to repeat it, will not generate data that will be recognizable as a "circle" without translation to the human reference frame   
      - one solution _might be_ to perform very fast tight circles and figure-eights (I advised to do this several times during the Fall semester)    
-5. Gathering gesture training data.  **TODO**  
-   - labeling  
-6. Training the model.  **TODO**  
-   - testing (how will you read the recognized gesture?)  
-7. Recognizing the I2C BLE transceiver by the FC.  **TODO**  
-8. Communication over BLE between Arduino and BLE transciever.  **TODO**  
-9. Programming the drone trajectories.  **TODO**  
+5. Gathering gesture training data.   
+   - (easy) define the "gesture motions"     
+   - (medium) come up with a setup and procedure to capture the motion data and pair the data sequence with a gesture _label_ (e.g. "Circle", "Figure-8", etc.)  
+   - (easy) have several people perform each gesture 100s of times and assemble a _training dataset_  
+   - (medium/hard) preprocess the data in accordance with item (4) above  
+6. Training the model.  
+   - (easy) make a randomized split of the dataset into [_training_, _validation_, and _test_ sets](https://towardsdatascience.com/train-validation-and-test-sets-72cb40cba9e7) with the ratio 8:1:1  
+   - (medium) customize the TinyML pipeline for your data  
+   - (easy/medium) train the model, using the dataset splits    
+   - (medium/hard) come up with a mothod for live reading the gesture classification; this will be used for testing in the physical world  
+7. Recognizing the I2C [BLE transceiver](https://www.dfrobot.com/product-1259.html) (aka Beetle) by the FC.  
+   - (easy) create the I2C connector from the breakout to the Beetle (you do not want to solder headers; the best would be if you a swisted copper wires and solder the copper directly to the SCL and SDA contacts)  
+   - (medium) add the I2C device to the firmware, set up a passive repeater test to make sure the FC and the Beetle can communicate, reload the firmware, and test    
+8. Communication over BLE between Arduino and BLE transciever.  
+   - (medium/hard) write basic code for FC firmware and Ardiuno Nano to communicate over BLE (this should just be a handshake); a complete readout of the protocol exchange will be very helpful  
+   - (medium) add new commands to the FC firmware for the trajectories you will want to perform  
+   - (medium) add automatic ascend and land commands to the Arduino nano  
+9. **Programming the drone trajectories.**  
+   - (hard) program the trajectories corresponding to the gestures that will be made (this is in the firmware)    
+   - (hard) come up with a way to add the commands to the controller app, to test the trajectories in the air (without a wand)    
+10. Beetle mounting.  
+    - (easy/medium) design the attachment of the BLE transciever and do a test flight    
 10. Wand design and operation. 
+    - (easy/medium) design the buttons and program, interrupt handlers for them, and test their operation and the responsiveness of the Arduino  
+    - (easy) design and build the battery case and the power connector to the Arduino  
+    - (medium) design the case with three buttons
 11. Safety.  
+12. Open-air test.  
+
+### Scope Progression
+
+A sequence of stable milestones of partial end-goal completion which work in their own right and can serve as flexible surrogate end-goals for dynamic scope control.
+
+**TODO**  
