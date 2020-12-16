@@ -64,7 +64,7 @@ Project components and/or stages/milestones the success of the project depends o
    - (medium/hard) design the BLE app (you might need to start from a skeleton app that you find out there; also, you should scope down from multi-platform to single-platform (whatever your phone is running, just to keep this possible) for the subset of commands you will want to program in the drone and whatever telemetry (real-time data from the drone) you will want to receive  
    - (hard) put the drone in the tuning platform and test the remote control from the app (app->(BLE)->Arduino->(pins)->ESCs+motors)  
 7. Safety.
-   - (medium) establish max distance for safe remote control  
+   - (medium) establish minimum distance for safe remote control  
    - (hard) hard-code safe autonomous ascent and descent   
 8. Open-air test.  
    
