@@ -106,7 +106,12 @@ Project components and/or stages/milestones the success of the project depends o
    - (easy/medium) read the first few chapters of Andrew Trask's _Grokking Deep Learning_  
    - (medium) with this knowledge, take apart the pipline you used from the example, and explain to yourself every step   
 4. Understanding _motion-sensing for control_ in terms of reference frames.
-   - (easy/medium) **TODO**  
+   - (medium) the drone has its own _reference frame_ (exactly where it falls depends on their design; actually, the drone has 2-3 different reference systems and they are corrected for in the firmware: IMU, center of mass, center of thrust), relative to which it will perform any trajectory it's (programmed and) commanded to   
+   - (medium) the Arduino has its own 2 systems: IMU and center of mass; you might or might not need to correct for it   
+   - (medium) a _gesture_ is performed **relative** to the egocentric center of mass of a human (Actually, that's a gross simplification. For example, you can perform a hand guesture relative to your wrist and it will be recognized regardless of what the rest of your body is doing. _The human mind absolutely does not do [inverse kinematics](https://en.wikipedia.org/wiki/Inverse_kinematics) to recognize gestures._ The simplification will work for this project. However, it might need to be corrected for for the next point.)  
+   - (hard/very hard) for the training of the Arduino to recognize gestures, the IMU data may or may not need to be translated to the human frame:
+     - if it is not, the data might be too _noisy_ to learn a good _gesture classifier_: this means that, since the data from the IMU is naturally relative to its own reference frame, the datapoint sequence for the guesture motion **does not** describe a gesture relative to the IMU; as a result, the learning algorithm and the model structure might not be able to _generalize_ well and the classifier will be very glitchy      
+     - if it is to be translated, the human reference frame will need to be fixed in space-time (this can either be approximated by aggregating [anthropometric data](https://www.google.com/search?q=anthropometric+dataset) or it has to be a physical device (e.g. another Arduino Nano 33 BLE Sense) to close the loop for time-of-flight (TOF) measurements for relative position   
 5. Gathering gesture training data.  **TODO**  
 6. Training the model.  **TODO**  
 7. Recognizing the I2C BLE transceiver.  **TODO**  
