@@ -95,7 +95,7 @@ Project components and/or stages/milestones the success of the project depends o
    - (hard) read and understand the [firmware source code](https://github.com/DronaAviation/Magis)    
    - (medium/hard) fly the drone after tinkering with the code  
    - (medium/hard) study the [flight controller](https://create.dronaaviation.com/hardware/flight-controllers/primus-x) along with the firmware to understand what 
-2. Understanding the [Arduino Babo 33 BLE Sense](https://www.arduino.cc/en/Guide/NANO33BLESense).
+2. Understanding the [Arduino Nano 33 BLE Sense](https://www.arduino.cc/en/Guide/NANO33BLESense).
    - (easy/medium) familiarize yourself with the [NINA-B3 documentation](https://www.u-blox.com/sites/default/files/NINA-B3_DataSheet_%28UBX-17052099%29.pdf)  
    - (easy/medium) familiarize yourself with the [nRF52840 documentation](https://content.arduino.cc/assets/Nano_BLE_MCU-nRF52840_PS_v1.1.pdf)  
    - (easy/medium) familiarize yourself with the [sensor suite documentation](https://store.arduino.cc/usa/nano-33-ble-sense) (tab _Tech Specs_)  
