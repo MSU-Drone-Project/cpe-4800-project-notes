@@ -1,4 +1,4 @@
-# CPE 4800: Adviser's Capstone Project Notes
+# CPE 4800: Capstone Project Notes
 
 Adviser: Ivo Georgiev, PhD
 
