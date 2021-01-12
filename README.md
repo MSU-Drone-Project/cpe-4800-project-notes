@@ -138,7 +138,7 @@ Project components and/or stages/milestones the success of the project depends o
 7. Recognizing the I2C [BLE transceiver](https://www.dfrobot.com/product-1259.html) (aka Beetle) by the FC.  
    - (easy) create the I2C connector from the breakout to the Beetle (you do not want to solder headers; the best would be if you a swisted copper wires and solder the copper directly to the SCL and SDA contacts)  
    - (medium) add the I2C device to the firmware, set up a passive repeater test to make sure the FC and the Beetle can communicate, reload the firmware, and test    
-8. Communication over BLE between Arduino and BLE transciever.  
+8. Communication over BLE between Arduino Nano and BLE transciever.  
    - (medium/hard) write basic code for FC firmware and Ardiuno Nano to communicate over BLE (this should just be a handshake); a complete readout of the protocol exchange will be very helpful  
    - (medium) add new commands to the FC firmware for the trajectories you will want to perform  
    - (medium) add automatic ascend and land commands to the Arduino nano  
@@ -160,7 +160,11 @@ A sequence of stable milestones of partial end-goal completion which work in the
 
 Milestone | Project component | Demo
 --- | --- | ---
-1 | 8 | TODO
-2 | 7 | TODO
-3 | 9 | TODO
+1 | 8 | Hook up the Beetle BLE transciever to the I2C bus of the Smraza Uno R3 board and establish a two-way BLE link with the Arduino Nano 33 BLE Sense.  
+2 | 7 | Hook up the Beetle BLE transciever to the I2C but of the Primus X flight controller and establish a two-way BLE link with the Arduino Nano 33 BLE Sense.
+3 | 9 | Program the Pluto X to perform two trajectories (circle and figure-8) autonomously from the stable hovering position following the completion of the "Take off" command from the remote (phone). Add the commands "Circle" and "Figure-8" to the firmware, just like the "Take off" and "Land". _How to you add a command to the remote (phone) control?_
+4 | 10 | Mount the Beetle onto the Pluto X.
+5 | 8 | Demonstrate that the commands "Circle" and "Figure-8" can be sent from the Arduino Nano 33 BLE Sense over BLE to the Beetle and over I2C from the Beetle to the Primus X, and that the Primus X recognize them as valid commands.
+6 | | Using the controller app, get the Pluto X to hover. Send the trajectory commands "Circle" and "Figure-8" from the Arduino Nano 33 BLE Sense and get the Pluto X to execute them, one at a time. Using the controller app, get the Pluto X to land.
+
 
