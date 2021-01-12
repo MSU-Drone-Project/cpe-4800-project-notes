@@ -147,15 +147,20 @@ Project components and/or stages/milestones the success of the project depends o
    - (hard) come up with a way to add the commands to the controller app, to test the trajectories in the air (without a wand)    
 10. Beetle mounting.  
     - (easy/medium) design the attachment of the BLE transciever and do a test flight    
-10. Wand design and operation. 
+11. Wand design and operation. 
     - (easy/medium) design the buttons and program, interrupt handlers for them, and test their operation and the responsiveness of the Arduino  
     - (easy) design and build the battery case and the power connector to the Arduino  
     - (medium) design the case with three buttons
-11. Safety.  
-12. Open-air test.  
+12. Safety.  
+13. Open-air test.  
 
 ### Scope Progression
 
 A sequence of stable milestones of partial end-goal completion which work in their own right and can serve as flexible surrogate end-goals for dynamic scope control.
 
-**TODO**  
+Milestone | Project component | Demo
+--- | --- | ---
+1 | 8 | TODO
+2 | 7 | TODO
+3 | 9 | TODO
+
