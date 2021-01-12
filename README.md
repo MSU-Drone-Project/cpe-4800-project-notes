@@ -166,5 +166,5 @@ Milestone | Project component | Demo
 4 | 10 | Mount the Beetle onto the Pluto X.
 5 | 8 | Demonstrate that the commands "Circle" and "Figure-8" can be sent from the Arduino Nano 33 BLE Sense over BLE to the Beetle and over I2C from the Beetle to the Primus X, and that the Primus X recognize them as valid commands.
 6 | | Using the controller app, get the Pluto X to hover. Send the trajectory commands "Circle" and "Figure-8" from the Arduino Nano 33 BLE Sense and get the Pluto X to execute them, one at a time. Using the controller app, get the Pluto X to land.
-
+TBD | 3-6 | After successful completion of Milestone 6.
 
