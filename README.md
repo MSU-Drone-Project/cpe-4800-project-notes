@@ -11,11 +11,13 @@ Table of Contents
     * [Project Lead](#project-lead)
     * [Critical Path](#critical-path)
     * [Scope Progression](#scope-progression)
+    * [Lab Notebook](#lab-notebook)
   * [Project 2: Quadcopter Drone Control with Motion Sensing](#project-2-quadcopter-drone-control-with-motion-sensing)
     * [Description](#description-1)
     * [Project Lead](#project-lead-1)
     * [Critical Path](#critical-path-1)
     * [Scope Progression](#scope-progression-1)
+    * [Lab Notebook](#lab-notebook-1)
 
 ## Project 1: Quadcopter Drone Flight Controller
 [[toc](#table-of-contents)]
@@ -77,6 +79,10 @@ Project components and/or stages/milestones the success of the project depends o
 A sequence of stable milestones of partial end-goal completion which work in their own right and can serve as flexible surrogate end-goals for dynamic scope control.
 
 **TODO**  
+
+### Lab Notebook
+
+Keep a [lab notebook](https://github.com/ivogeorg/ce-learning-progression-001-microbit/blob/master/submission-example.md) as you progress through the milestone.
 
 ## Project 2: Quadcopter Drone Control with Motion Sensing
 [[toc](#table-of-contents)]
@@ -168,3 +174,6 @@ Milestone | Project component | Demo
 6 | | Using the controller app, get the Pluto X to hover. Send the trajectory commands "Circle" and "Figure-8" from the Arduino Nano 33 BLE Sense and get the Pluto X to execute them, one at a time. Using the controller app, get the Pluto X to land.
 TBD | 3-6 | After successful completion of Milestone 6.
 
+### Lab Notebook
+
+Keep a [lab notebook](https://github.com/ivogeorg/ce-learning-progression-001-microbit/blob/master/submission-example.md) as you progress through the milestone.
